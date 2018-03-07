@@ -15,7 +15,7 @@ var result = "";
 
 for(var i=0; i<cardarry.length; i=i+1){
 
-	var liresult = '<div class="click panel circle" onClick="cardClick('+i+')"><div class="front"><img src="images/card.png" width="190" height="300" alt=""></div><div class="back"><h2>'+cardarry[i]+'</h2> </div></div>'
+	var liresult = '<div id='+i+' class="click panel circle" onClick="cardClick('+i+')"><div class="front"><img src="images/card.png" width="190" height="300" alt=""></div><div class="back"><h2>'+cardarry[i]+'</h2> </div></div>'
 
 	result = liresult+result;
 	
@@ -28,20 +28,21 @@ for(var i=0; i<cardarry.length; i=i+1){
 var element = document.getElementById("cardcontainer");
 
 element.innerHTML=result;
-
-
+var firstCardId;
+var secondCardId;
 function cardClick(str){
 
   
-   //alert(cardarry[str]);
-
+   
 
    if(check){
+
+      firstCardId = str;
 
    	  firstCardValue =cardarry[str];
    	  check=false;
    }else{
-
+    secondCardId = str;
      secondCardValue = cardarry[str];
 
       if(firstCardValue==secondCardValue){
@@ -50,7 +51,18 @@ function cardClick(str){
       }
       else{
          
-           alert("Not match");
+         //  alert("Not match");
+          // 
+
+           var interval = setInterval(function(){
+
+            document.getElementById(firstCardId).className = "click panel circle";
+            document.getElementById(secondCardId).className = "click panel circle";
+            clearInterval(interval);
+
+           },3000)
+
+          
 
       }
 
