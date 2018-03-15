@@ -1,27 +1,45 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title></title>
+	<title></title>
 </head>
-
 <body>
-    <div id="demo">Lorem</div>
-    <button onclick="myfun()">Click</button>
+	<input type="text" id="input_value" onkeyup="inpt_val()">
+   <ul id="test">
+		<li>demo</li>
+		<li>Vaibhav</li>
+		<li>saini</li>
+		<li>Demo</li>
+		<li>Vaibhav</li>
+		<li>saini</li>
+		<li>Demo</li>
+		<li>Vaibhav</li>
+		<li>saini</li>
+		<li>Demo</li>
+		<li>Vaibhav</li>
+		<li>saini</li>
+        
+   </ul>
+   
 </body>
-<script src="https://tripfur.com/js/jquery.min.js"></script>
+
 
 <script>
-    function myfun() {
-        var req = new XMLHttpRequest();
-        req.open('GET', 'local.html', true);
-        req.send();
-        req.onreadystatechange = function() {
-            if (req.readyState == 4 && req.status == 200) {
-                document.getElementById('demo').innerHTML = req.responseText;
-            }
-        }
-    }
+	function inpt_val(){
+		var a = document.getElementById('input_value').value;
+		var temp = document.getElementsByTagName('li');
+		for(var i=0; i<=temp.length; i++){
+			var li_store = temp[i].textContent;
+			if(a == li_store){
+				var inp_new =  document.getElementById('input_value').value;
+				alert(inp_new);
+				document.getElementById('test').innerHTML = "<li>" + inp_new + "</li>";
+					
+			}
+		}
+	}
+
+
 
 </script>
 
