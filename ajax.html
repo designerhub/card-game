@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <div id="demo">Lorem</div>
+    <button onclick="myfun()">Click</button>
+</body>
+<script src="https://tripfur.com/js/jquery.min.js"></script>
+
+<script>
+    function myfun() {
+        var req = new XMLHttpRequest();
+        req.open('GET', 'local.html', true);
+        req.send();
+        req.onreadystatechange = function() {
+            if (req.readyState == 4 && req.status == 200) {
+                document.getElementById('demo').innerHTML = req.responseText;
+            }
+        }
+    }
+
+</script>
+
+</html>
